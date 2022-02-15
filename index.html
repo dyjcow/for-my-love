@@ -40,7 +40,7 @@
             <div id="mobile-head">
                 <div id="mobile-head-title">与柴犬聊天中</div>
             </div>
-            <div id="mobile-body">
+            <div id="mobile-body" onClick="play()">
                 <div id="mobile-body-bg"></div>
                 <div id="mobile-body-content">
                     <div id="mock-msg-row" class="msg-row">
@@ -79,7 +79,7 @@
                             </ul>
                         </div>
                     </div>
-                </div>
+                </div> 
                 <div id="input-hint" class="say-something"
                     v-on:click="togglePrompt(true)"
                     :class="{'clickable': !isTyping }">
@@ -95,9 +95,21 @@
                 我的源码
             </a>
         </div>
-        <audio id="music" autoplay="autoplay" loop="loop">
+        <audio id="music" controls="controls" loop="loop">
             <source src="./Lover.mp3" type="audio/mpeg">
         </audio>
+<script>
+    window.onload = function(){ 
+    var audio = document.getElementById('music');
+        audio.pause();//打开页面时无音乐
+    }
+    function play() {
+        var audio = document.getElementById('music');
+        if (audio.paused) {
+            audio.play();
+        }
+    }
+</script>
         <script src="//cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
         <script src="//cdn.bootcss.com/vue/2.2.6/vue.min.js"></script>
 
